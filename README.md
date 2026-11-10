@@ -1,24 +1,64 @@
-# SEGUS 赛格斯 · 桌面版
+# 赛格斯 SEGUS · 桌面 AI 助理
 
-本地私人 AI 助理（Electron 桌面壳 + Python 后端）。
+> 本地优先的个人 AI 助理。说一句话，它去干活——对话、执行、交付文件，都在你自己这台机器上。
 
-## 下载安装
+---
 
-前往 [Releases](https://github.com/zhou99999999/SEGUS/releases) 下载最新版：
+## 它是什么
+
+赛格斯是一个跑在本机的桌面 AI 助理（Windows 桌面壳 + Python 后端）。和只会在网页里聊天的助手不同，
+它直接拥有这台机器的能力：读写文件、操作表格、控制浏览器、调用工具、记住你说过的事。
+
+- **语音优先**：本地语音合成与识别，说话即可下达任务，回复也能直接念出来
+- **会干活**：任务编排 + 工具调用 + 审批门控，复杂任务拆成多步自动执行
+- **给交付物**：不只给文字，直接产出 Word / Excel / 网页 / 图表等文件，可预览可打开
+- **有记忆**：分层记忆与遗忘曲线，重要的事记得住，琐碎的不占地方
+- **可扩展**：技能体系，装载即用；外部能力通过 MCP 接入
+- **数据本地**：会话、记忆、画像都落在本机数据目录，不上传第三方
+
+## 安装
+
+前往 [Releases](https://github.com/zhou99999999/SEGUS/releases/latest) 下载最新版：
 
 | 文件 | 说明 |
 |---|---|
-| `SEGUS-Desktop-Setup-<ver>-Lite.exe` | 安装器（引导） |
-| `SEGUS-Desktop-Setup-<ver>-Lite-1.bin` | 分卷数据包（必须与 exe 放在同一文件夹） |
-| `SHA256SUMS-<ver>.txt` | 校验和 |
+| `SEGUS-Desktop-Setup-<版本>-Lite.exe` | 安装包（**单文件**，双击即可安装） |
+| `SHA256SUMS-<版本>.txt` | 校验和清单 |
 
-> 这是 Inno Setup 分卷安装包：只下 exe 无法安装，两个文件必须同目录。
-
-## 校验
-
-用系统自带 certutil 算 SHA256，与 `SHA256SUMS-<ver>.txt` 逐项核对：
+安装前建议先校验完整性（系统自带 certutil）：
 
 ```
-certutil -hashfile SEGUS-Desktop-Setup-1.22.2-Lite.exe SHA256
-certutil -hashfile SEGUS-Desktop-Setup-1.22.2-Lite-1.bin SHA256
+certutil -hashfile SEGUS-Desktop-Setup-1.23.0-Lite.exe SHA256
 ```
+
+输出应为：
+
+```
+28efba98240e899311919200294cd944303ff798df5350f4b2402e59110b4a87
+```
+
+## 系统要求
+
+- Windows 10 / 11（64 位）
+- 安装与运行会占用数 GB 磁盘空间（含本地语音模型）
+- 首次启动需初始化本地数据目录，会比之后慢一些
+
+## 数据与隐私
+
+- 所有会话记录、记忆、个人画像保存在本机数据目录（默认位于用户 AppData 下）
+- 只有调用云端大模型时，任务上下文才会按需发送到你所配置的模型服务
+- 卸载不会自动清除数据目录，需要彻底清理时请手动删除
+
+## 版本
+
+当前发布：**1.23.0**
+
+历史版本的安装包会随 Release 一起下线，只保留最新可用版本。
+
+## 反馈
+
+遇到问题或有功能建议，请提交 [Issues](https://github.com/zhou99999999/SEGUS/issues)。
+
+---
+
+<sub>本仓库用于分发赛格斯桌面版安装包与发布说明。源码与素材版权归作者所有。</sub>
