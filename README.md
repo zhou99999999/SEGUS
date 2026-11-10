@@ -23,19 +23,6 @@
 | 文件 | 说明 |
 |---|---|
 | `SEGUS-Desktop-Setup-<版本>-Lite.exe` | 安装包（**单文件**，双击即可安装） |
-| `SHA256SUMS-<版本>.txt` | 校验和清单 |
-
-安装前建议先校验完整性（系统自带 certutil）：
-
-```
-certutil -hashfile SEGUS-Desktop-Setup-1.23.0-Lite.exe SHA256
-```
-
-输出应为：
-
-```
-28efba98240e899311919200294cd944303ff798df5350f4b2402e59110b4a87
-```
 
 ## 系统要求
 
@@ -51,7 +38,7 @@ certutil -hashfile SEGUS-Desktop-Setup-1.23.0-Lite.exe SHA256
 
 ## 版本
 
-当前发布：**1.23.0**
+当前发布：**1.24.0**
 
 历史版本的安装包会随 Release 一起下线，只保留最新可用版本。
 
